@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script> <!-- Older A-Frame version allows physics to work -->
+    <script src="http://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script> <!-- A-Frame Physics system that works with Leap Hands and objects -->
+    <script src="https://unpkg.com/aframe-leap-hands@0.8.0/dist/aframe-leap-hands.umd.js"></script> <!-- Leap Motion Controller SDK -->
+ 
+  </head>
+  <body>
+    <a-scene physics="debug: true">
+      <!-- 1. Ground -->
+      <a-plane position="0 -0.5 -4" height="10" width="10" rotation="-90 0 0" color="#57B94D" static-body></a-plane>
+      <!-- 2. Moveable Box -->
+      <a-box position="-0.4 2 -0.5" color="#F38128" scale="0.6 0.6 0.6"dynamic-body mass="4"></a-box>
+      <!-- 3. Immovable Cylinder -->
+      <a-cylinder position="0.4 -0.25 -0.5" color="#283AF3" radius="0.25" height="0.3"dynamic-body></a-cylinder>
+      <!-- 4. Spring System -->
+      <a-box id ="test" position="0 3 -3" color="#676B92" scale="0.25 0.25 0.25" static-body></a-box>
+      <a-dodecahedron position="0 2 -3" color="#252B64" dynamic-body scale="0.25 0.25 0.25" spring="target: #test; damping: 0.2; stiffness: 50;" ></a-dodecahedron>
+      <!-- 5. EXTRA: Leap Motion Controller Hands -->
+      <a-entity camera="near: 0.01" look-controls></a-entity>
+      <a-entity leap-hand="hand: right; enablePhysics: true"></a-entity>
+      <a-entity leap-hand="hand: left; enablePhysics: true"></a-entity>
+      <!--<a-entity leap="quaternion 0 0 0 2"></a-entity> -->
+
+    </a-scene>
+  </body>
+</html>
