@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.2.0/dist/aframe-physics-system.min.js"></script>
+        
+    </head>
+    <body>
+        <a-scene>
+            <a-assets>
+                <img id="floor" src="https://cdn.glitch.com/a385d449-4e52-40a5-b469-63598fd25f17%2Ffloor-1024.jpg?1532125960968">
+              </a-assets>
+              <a-plane src="#floor" rotation="-90 0 0" scale="10000 10000 1" repeat="1000 1000" static-body></a-plane>
+              <a-box id="refresh" position="0 7 -10.9" scale="4 1 1" color="#ccc" static-body="mass:1" refresh></a-box>
+              <a-text position="-1.6 7 -10.3" value="NEW GAME" color="black" wrap-count="15"></a-text>
+              
+        </a-scene>
+    </body>
+</html>
