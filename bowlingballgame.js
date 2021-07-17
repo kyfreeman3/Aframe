@@ -157,10 +157,6 @@ AFRAME.registerComponent('bowling', {
         document.querySelector("#pinID").getAttribute('rotation').x;
       }
 })
-var pubnub = new PubNub({
-    publish_key: 'pub-c-4e873b7d-9818-4d7d-b95e-6a6d91c6bb8b',
-    subscribe_key: 'sub-c-a9eed784-e731-11eb-97be-3ebc6f27b518'
-  })
   pubnub.publish({
     message: {'key' : 'your-turn'},
     channel: 'VR'
