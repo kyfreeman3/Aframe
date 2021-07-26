@@ -22,6 +22,8 @@
         <script src = "/socket.io/socket.io.js"></script>
         <script> 
             var socket = io();
+
+            var messages = document.getElementById('messages');
             var form = document.getElementById('form');
             var input = document.getElementById('input');
 
@@ -33,10 +35,10 @@
                 }
             });
 
-            sokcet.on('chat message', function(msg){
+            socket.on('chat message', function(msg){
                 var item = document.createElement('li');
                 item.textContent = msg;
-                message.appendChild(item);
+                messages.appendChild(item);
                 window.scrollTo(0,document.body.scrollHeight);
             });
         </script>
