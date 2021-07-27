@@ -4,7 +4,10 @@
     <script src="http://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script> <!-- A-Frame Physics system that works with Leap Hands and objects -->
     <script src="https://unpkg.com/aframe-leap-hands@0.8.0/dist/aframe-leap-hands.umd.js"></script> <!-- Leap Motion Controller SDK -->
     <script src = "/socket.io/socket.io.js"></script> <!-- socket.io-->
- 
+    <!--<script src = "/Users/KylerFreeman/Documents/GitHub/Aframe/multleap/aframComp.js"></script>-->
+
+   <!-- GET http://localhost:3000/favicon.ico 404 (Not Found) error without code below-->
+   <link rel="shortcut icon" href="#" />
   </head>
   <body>
     <a-scene physics="debug: true"> <!-- leap="vr: false" -->
@@ -19,10 +22,11 @@
       <a-dodecahedron position="0 2 -3" color="#252B64" dynamic-body scale="0.25 0.25 0.25" spring="target: #test; damping: 0.2; stiffness: 50;" ></a-dodecahedron>
       <!-- 5. EXTRA: Leap Motion Controller Hands -->
       <a-entity camera="near: 0.01" look-controls></a-entity>
-      <a-entity leap-hand="hand: left; enablePhysics: true"></a-entity>
-      <a-entity leap-hand="hand: right; enablePhysics: true"></a-entity>
+      <a-entity id = "left" leap-hand="hand: left; enablePhysics: true"></a-entity>
+      <a-entity id = "right" leap-hand="hand: right; enablePhysics: true"></a-entity>
       <!--<a-entity leap="quaternion 0 0 0 2"></a-entity> -->
-
+      <a-entity left ></a-entity>
+      <a-entity right></a-entity>
     </a-scene>
     <script> 
         var socket = io();
@@ -31,20 +35,20 @@
         var form = document.getElementById('form');
         var input = document.getElementById('input');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            if(input.value) {
-                socket.emit('chat message', input.value);
-                input.value = '';
-            }
-        });
+        // form.addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     if(input.value) {
+        //         socket.emit('chat message', input.value);
+        //         input.value = '';
+        //     }
+        // });
 
-        socket.on('chat message', function(msg){
-            var item = document.createElement('li');
-            item.textContent = msg;
-            messages.appendChild(item);
-            window.scrollTo(0,document.body.scrollHeight);
-        });
+        // socket.on('chat message', function(msg){
+        //     var item = document.createElement('li');
+        //     item.textContent = msg;
+        //     messages.appendChild(item);
+        //     window.scrollTo(0,document.body.scrollHeight);
+        // });
     </script>
   </body>
 </html>
