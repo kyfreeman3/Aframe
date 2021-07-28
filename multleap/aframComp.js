@@ -1,23 +1,4 @@
-// AFRAME.registerComponent('Leap-hands', {
-//     schema: {
-//     },
-  
-//     init: function () {
-//       var sceneEl = document.querySelector('a-scene');
-//       var left = sceneEl.querySelector("#Left");
-//       var right = sceneEl.querySelector("#Right");
-//       document.querySelector("#Left").addEventListener('click');
-//       document.querySelector("#Right").addEventListener('click');
-//       var leftPos = left.getAttribute("position");
-//       var rightPos = right.getAttribute("position");
-//       console.log( leftPos + rightPos);
-      
-//       console.log("test" + leftPos + rightPos);
-//       // Do something when component first attached.
-//     },
-  
-    
-//   });
+
 
   AFRAME.registerComponent('left', {
       schema: {
