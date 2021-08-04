@@ -4,7 +4,7 @@
     <script src="http://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script> <!-- A-Frame Physics system that works with Leap Hands and objects -->
     <script src="https://unpkg.com/aframe-leap-hands@0.8.0/dist/aframe-leap-hands.umd.js"></script> <!-- Leap Motion Controller SDK -->
     <script src = "/socket.io/socket.io.js"></script> <!-- socket.io-->
-    <!--<script src = "/Users/KylerFreeman/Documents/GitHub/Aframe/multleap/aframComp.js"></script>-->
+    <script src = "aframComp.js"></script>
 
    <!-- GET http://localhost:3000/favicon.ico 404 (Not Found) error without code below-->
    <link rel="shortcut icon" href="#" />
@@ -27,10 +27,12 @@
       <!--<a-entity leap="quaternion 0 0 0 2"></a-entity> -->
       <a-entity left ></a-entity>
       <a-entity right></a-entity>
+      <a-entity log="message: Hello!"></a-entity>
     </a-scene>
     <script> 
         var socket = io();
 
+      
         // var messages = document.getElementById('messages');
         // var form = document.getElementById('form');
         // var input = document.getElementById('input');
@@ -42,7 +44,7 @@
         //         input.value = '';
         //     }
         // });
-
+          
         // socket.on('chat message', function(msg){
         //     var item = document.createElement('li');
         //     item.textContent = msg;

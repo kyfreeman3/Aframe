@@ -10,25 +10,34 @@ const http = require('http');
  const { Server } = require("socket.io");
 const io = new Server(server);
 const port = 3000;
-
+const path = require('path');
 //var sceneEl = document.querySelector('a-scene');
 
+app.use(express.static( path.join("/js" +  __dirname,  'public')));
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/leapcontrol.html');
-
 });
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/aframComp.js');
-
-});
+//app.use(express.static( path.join("/js" +  __dirname,  'public')));
 
 io.on("connection", socket => {
   console.log("user connected", socket.id);
-
-
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  }),
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
+    console.log('message: ' + msg);
+  });
   });
 
 
+  // socket.on('disconnect', () => {
+  //   console.log('user disconnected');
+  // }),
+  // socket.on('chat message', (msg) => {
+  //   io.emit('chat message', msg);
+  //   console.log('message: ' + msg);
+  // });
 
 // webServer.listen(port, () => {
 //   console.log("listening on http://localhost:" + port);
