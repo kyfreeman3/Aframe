@@ -1,23 +1,16 @@
 {
-  "name": "socketio",
+  "name": "multleap",
   "version": "1.0.0",
-  "description": "Socket IO",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kyfreeman3/Aframe.git"
-  },
-  "keywords": [
-    "Socketio"
-  ],
-  "author": "Kyler Freeman",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kyfreeman3/Aframe/issues"
-  },
-  "homepage": "https://github.com/kyfreeman3/Aframe#readme"
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.3"
+  }
 }
